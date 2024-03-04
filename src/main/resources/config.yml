@@ -1,0 +1,17 @@
+messages:
+  no-permission: "&cInsufficient Permission!"
+  eliminated: "&cYou are eliminated! &f(You will need to be revived)"
+
+items:
+  revival-stone:
+    item: "BEACON"
+    model-data: 0
+    name: "&b&lRevival Stone"
+    lore:
+      - "&7Use this item to revive someone!"
+    # The commands to run when someone is revived
+    # Placeholders: {0} is the player being revived
+    #               {1} is the player who used the revival stone
+    commands:
+      - "unban {0} You have been revived!"
+      - "broadcast {0} has been revived by {1}!"

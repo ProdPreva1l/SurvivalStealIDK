@@ -1,0 +1,5 @@
+name: CustomItems
+author: Preva1l
+version: '${version}'
+main: info.preva1l.customitems.CustomItems
+api-version: '1.16'

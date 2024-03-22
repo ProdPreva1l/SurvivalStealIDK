@@ -7,6 +7,8 @@ import info.preva1l.customitems.utils.commands.CommandArgs;
 import info.preva1l.customitems.utils.commands.CommandArguments;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -14,6 +16,7 @@ public class EliminateCommand extends Command {
     @CommandArgs(name = "eliminate", aliases = {"elim"})
     public void execute(CommandArguments command) {
         String[] args = command.getArgs();
+
         if (args.length == 0) {
             command.getSender().sendMessage(Text.pluginMessage("&cUsage: /eliminate <player>"));
             return;

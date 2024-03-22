@@ -43,8 +43,10 @@ public class RevivalStoneGUI extends FastInv {
 
         this.list = StorageHelper.getElims();
 
+        setItems(getBorders(), new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE).name(" ").build());
+
         try {
-            int maxItemsPerPage = 18;
+            int maxItemsPerPage = 28;
             for (int i = 0; i < maxItemsPerPage; i++) {
                 index = maxItemsPerPage * page + i;
                 if (index >= list.size()) break;
@@ -55,7 +57,7 @@ public class RevivalStoneGUI extends FastInv {
                         .lore(Text.message("&fClick to revive this player!")).build();
                 SkullMeta meta = (SkullMeta) itemStack.getItemMeta();
                 if (player.getName() == null) {
-                    meta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("26decebc-0c64-453f-98c5-939c42d17a08")));
+                    meta.setOwningPlayer(Bukkit.getOfflinePlayer("Preva1l"));
                 } else {
                     meta.setOwningPlayer(player);
                 }

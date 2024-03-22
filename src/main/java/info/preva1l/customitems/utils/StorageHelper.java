@@ -2,7 +2,7 @@ package info.preva1l.customitems.utils;
 
 import info.preva1l.customitems.CustomItems;
 import info.preva1l.customitems.config.Config;
-import info.preva1l.customitems.utils.exceptions.WoopsieDaisyException;
+import info.preva1l.customitems.utils.exceptions.FileReaderGotFuckedException;
 import lombok.experimental.UtilityClass;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -26,8 +26,7 @@ public class StorageHelper {
         if (!file.exists()) {
             try {
                 if (!file.createNewFile()) {
-                    Console.severe("This shouldnt happen, if it is, your java is weird idk bro");
-                    throw new WoopsieDaisyException("This shouldnt happen, if it is, your java is weird idk bro");
+                    throw new FileReaderGotFuckedException("This shouldnt happen, if it is, your java is weird idk bro");
                 }
             } catch (IOException e) {
                 CustomItems.i().getPluginLoader().disablePlugin(CustomItems.i());

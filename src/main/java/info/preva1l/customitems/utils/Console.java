@@ -6,13 +6,13 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class Console {
     private final CustomItems plugin = CustomItems.i();
-    public void info(String message) {
-        plugin.getLogger().info(message);
+    public void info(String message, Object... extra) {
+        plugin.getLogger().info(Text.message(message,extra));
     }
-    public void warn(String message) {
-        plugin.getLogger().warning(message);
+    public void warn(String message, Object... extra) {
+        plugin.getLogger().warning(Text.message(message,extra));
     }
-    public void severe(String message) {
-        plugin.getLogger().severe(message);
+    public void severe(String message, Object... extra) {
+        plugin.getLogger().severe(Text.message(message,extra));
     }
 }

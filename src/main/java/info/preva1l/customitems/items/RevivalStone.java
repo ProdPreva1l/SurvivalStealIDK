@@ -5,8 +5,9 @@ import info.preva1l.customitems.config.Config;
 import info.preva1l.customitems.guis.RevivalStoneGUI;
 import info.preva1l.customitems.utils.Sound;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
@@ -39,8 +40,8 @@ public class RevivalStone extends CustomItem {
     @Override
     public ItemStack itemStack() {
         ItemStack itemStack = new ItemBuilder(Material.valueOf(Config.REVIVAL_STONE_ITEM.toString()))
-                .name(Config.REVIVAL_STONE_NAME.toFormattedString())
-                .lore(Config.REVIVAL_STONE_LORE.toLore())
+                .name(name())
+                .lore(lore())
                 .data(model_data())
                 .build();
         ItemMeta meta = itemStack.getItemMeta();
@@ -60,9 +61,9 @@ public class RevivalStone extends CustomItem {
     }
 
     @Override
-    public void execute(PlayerEvent e) {
-        Sound.growl(e.getPlayer());
-        new RevivalStoneGUI(0).open(e.getPlayer());
+    public void run(Player p, Object... other) {
+        Sound.growl(p);
+        new RevivalStoneGUI(0).open(p);
     }
 
     @EventHandler
@@ -75,7 +76,6 @@ public class RevivalStone extends CustomItem {
             return;
         }
         e.setCancelled(true);
-        execute(e);
+        run(e.getPlayer());
     }
-
 }
